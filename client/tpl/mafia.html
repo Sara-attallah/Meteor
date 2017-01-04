@@ -1,0 +1,41 @@
+<template name="mafioso">
+
+            <div id="top">
+            <input id="traitorname" type="text" placeholder="Nom du traitre">
+            <button id="addname">Doit disparaître</button>
+            </div>
+    <div id="content">
+        <div id="row1">
+                <h3>À tuer</h3>
+                <ul>
+                    {{#each touslesmorts}}
+                    {{#if killedByNobody }}
+                    <li>{{ victime }}</li>
+                    <button id="gun">mort par balles</button>
+                    <button id="natural">mort a mano</button>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        <div id="row2">
+        <h3>Morts par balles</h3>
+        {{#each touslesmorts}}
+        {{#if killedByGun }}
+        <div id="weapon">
+            {{ victime }}
+        </div>
+        {{/if}}
+        {{/each}}
+        </div>
+        <div id="row3">
+        <h3>Morts à la main</h3>
+        {{#each touslesmorts}}
+        {{#if killedByHand }}
+        <div id="hand">
+            {{ victime }}
+        </div>
+        {{/if}}
+    {{/each}}
+        </div>
+    </div>
+</template>
